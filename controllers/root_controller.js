@@ -1,5 +1,6 @@
 const { strFuncToResult } = require('../utils/calc');
 const { addCalcHistory, deleteCalc } = require('../utils/calc_history_utilities');
+const { increaseCount } = require('../utils/usage_count_utilities');
 
 module.exports = {
   getResult: (req, res) => {
@@ -13,6 +14,7 @@ module.exports = {
         if (err) {
           res.status(500).json({ error: err.message });
         } else {
+          increaseCount();
           res.status(200).json(calcHistory);
         }
       })

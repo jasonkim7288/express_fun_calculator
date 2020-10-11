@@ -1,4 +1,3 @@
-const e = require('express');
 const { getAllCalcHistory, deleteCalc } = require('../utils/calc_history_utilities');
 
 module.exports = {

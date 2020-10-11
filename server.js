@@ -30,5 +30,6 @@ mongoose.connect(
 
 app.use('/', require('./routes/root_router'));
 app.use('/calc-history', require('./routes/calc_history_router'));
+app.use('/count', require('./routes/usage_count_router'));
 
 app.listen(port, () => console.log('Fun Calculater server is running on port ' + port));
