@@ -7,7 +7,10 @@ var strNum = '';
 const numFunc = process.env.NODE_ENV === 'production' ? 1000000 : 10000
 for (let i = 1; i < numFunc; i++) {
   strNum = numWords.toWords(i).replace(/[,]/g, '').split(/[ -]/).map((word, index) => index === 0 ? word : word[0].toUpperCase() + word.slice(1)).join('');
-  console.log('function created:', strNum);
+  if (i % (numFunc / 10) === 0) {
+    console.log('function created:', strNum);
+  }
+  
   // var nineThousand = num(9000);
   //                  = (cb = null) => cb ? cb(9000) : 9000;
   eval(`var ${strNum} = num(${i});`);
